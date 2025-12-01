@@ -3,6 +3,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Button from "./Button";
 import Card from "./Card";
+import { Typography } from "@mui/material";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + Reacts</h1>
+      <Typography variant="h1" gutterBottom>
+        Vite + Reacts
+      </Typography>
       <Button />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

@@ -10,7 +10,14 @@ export default defineConfig({
       remotes: {
         remoteApp: "http://localhost:5001/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: [
+        "react",
+        "react-dom",
+        "@mui/material",
+        "@mui/icons-material",
+        "@emotion/react",
+        "@emotion/styled",
+      ],
     }),
   ],
   server: {

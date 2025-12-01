@@ -12,7 +12,14 @@ export default defineConfig(({ mode }) => ({
         "./Button": "./src/Button.tsx",
         "./Card": "./src/Card.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: [
+        "react",
+        "react-dom",
+        "@mui/material",
+        "@mui/icons-material",
+        "@emotion/react",
+        "@emotion/styled",
+      ],
     }),
     // Log when build completes
     {

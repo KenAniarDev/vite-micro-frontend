@@ -1,31 +1,70 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { lazy, Suspense } from "react";
-
-// @ts-expect-error - Remote module from Module Federation
-const RemoteButton = lazy(() => import("remoteApp/Button"));
-// const RemoteCard = lazy(() => import("remoteApp/Card"));
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import {
+  CssBaseline,
+  Container,
+  Typography,
+  Box,
+  Button,
+  Paper,
+  Stack,
+} from "@mui/material";
+import theme from "./theme/theme";
+import { ThemeProvider } from "@mui/material/styles";
+import RemoteComponentLoader from "./components/RemoteComponentLoader";
 
 function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <RemoteButton />
-      </Suspense>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h1" component="h1" gutterBottom>
+            Host Application
+          </Typography>
 
-      {/* <button onClick={() => setComponent("Button")}>Load Button</button>
-      <button onClick={() => setComponent("Card")}>Load Card</button> */}
-    </>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+            This demonstrates MUI theming with Module Federation
+          </Typography>
+
+          {/* Show theme colors */}
+          <Paper sx={{ p: 3, mb: 4 }}>
+            <Typography variant="h5" gutterBottom>
+              Theme Preview
+            </Typography>
+            <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
+              <Button variant="contained" color="primary">
+                Primary
+              </Button>
+              <Button variant="contained" color="secondary">
+                Secondary
+              </Button>
+              <Button variant="outlined" color="primary">
+                Outlined
+              </Button>
+              <Button variant="text" color="primary">
+                Text
+              </Button>
+            </Stack>
+          </Paper>
+
+          {/* Remote component */}
+          <Box sx={{ mt: 4 }}>
+            <Typography variant="h5" gutterBottom>
+              Remote Component (inherits theme):
+            </Typography>
+            <RemoteComponentLoader
+              // @ts-expect-error - Remote module from Module Federation
+              loader={() => import("remoteApp/Button")}
+              moduleName="Remote Button"
+            />
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
