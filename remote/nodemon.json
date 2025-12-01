@@ -1,0 +1,8 @@
+{
+  "watch": ["dist"],
+  "ext": "js,css,html,json",
+  "ignore": ["node_modules/**", ".git/**"],
+  "delay": 1000,
+  "verbose": true,
+  "exec": "vite preview --port 5001"
+}
