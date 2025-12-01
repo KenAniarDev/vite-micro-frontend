@@ -6,12 +6,10 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     federation({
-      name: "remote_app",
+      name: "remote_app_1",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/Button.tsx",
-        "./Send": "./src/Send.tsx",
-        "./Receive": "./src/Receive.tsx",
+        "./NewPawn": "./src/NewPawn.tsx",
       },
       shared: [
         "react",
@@ -44,7 +42,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   preview: {
-    port: 5001,
+    port: 5002,
     cors: true,
     strictPort: true,
   },

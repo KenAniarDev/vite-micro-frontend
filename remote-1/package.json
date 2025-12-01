@@ -1,14 +1,16 @@
 {
-  "name": "host",
+  "name": "remote",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5000 --strictPort",
+    "dev": "vite --port 5002 --strictPort",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --port 5000 --strictPort",
-    "serve": "vite preview --port 5000 --strictPort"
+    "preview": "vite preview --port 5002 --strictPort",
+    "build:watch": "vite build --watch --mode development",
+    "preview:watch": "nodemon",
+    "dev:fed": "concurrently -n \"BUILD,PREVIEW\" -c \"cyan,green\" \"npm run build:watch\" \"npm run preview:watch\""
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -27,10 +29,12 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "nodemon": "^3.1.11",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"

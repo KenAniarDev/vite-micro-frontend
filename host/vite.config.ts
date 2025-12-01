@@ -9,12 +9,13 @@ export default defineConfig({
       name: "host_app",
       remotes: {
         remoteApp: "http://localhost:5001/assets/remoteEntry.js",
+        remoteApp1: "http://localhost:5002/assets/remoteEntry.js",
       },
       shared: [
         "react",
         "react-dom",
+        "react-router-dom",
         "@mui/material",
-        "@mui/icons-material",
         "@emotion/react",
         "@emotion/styled",
       ],

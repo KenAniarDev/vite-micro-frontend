@@ -4,8 +4,6 @@ import "./App.css";
 import Button from "./Button";
 import Card from "./Card";
 import { Typography } from "@mui/material";
-import Send from "./Send";
-import Receive from "./Receive";
 
 function App() {
   return (
@@ -22,8 +20,6 @@ function App() {
         Vite + Reacts
       </Typography>
       <Button />
-      <Send />
-      <Receive />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
