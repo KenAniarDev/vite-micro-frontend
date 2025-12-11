@@ -1,5 +1,12 @@
+import { InstallPrompt } from "../components/InstallPrompt";
+
 function Dashboard() {
-  return <h1>Dashboard Pages</h1>;
+  return (
+    <>
+      <InstallPrompt />
+      <h1>Dashboard Pagesss</h1>
+    </>
+  );
 }
 
 export default Dashboard;

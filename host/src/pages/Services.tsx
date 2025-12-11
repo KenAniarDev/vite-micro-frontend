@@ -7,7 +7,6 @@ import {
   CardContent,
   CardActions,
   Button,
-  Paper,
 } from "@mui/material";
 
 function Services() {
@@ -46,7 +45,7 @@ function Services() {
 
       <Grid container spacing={3} sx={{ mt: 2 }}>
         {services.map((service) => (
-          <Grid item xs={12} sm={6} md={4} key={service.id}>
+          <Grid key={service.id}>
             <Card
               sx={{
                 height: "100%",
